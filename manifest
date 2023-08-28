@@ -1,4 +1,6 @@
+.bashrc
 .config/i3/config
 .config/i3status/config
 .tmux.conf
 .vimrc
+
