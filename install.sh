@@ -5,19 +5,16 @@ mk()
     mkdir -p $1
 }
 
-mkcd()
-{
-    mk $1 && cd $1
-}
-
-FILES=$(cat manifest)
-
 if [ -n "$1" ]
 then
     OUTDIR="$1"
 else
     OUTDIR=$HOME
 fi
+
+cd "$(dirname "$0")"
+
+FILES=$(cat manifest)
 
 for fil in $FILES
 do
