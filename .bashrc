@@ -127,6 +127,7 @@ alias calc='gnome-calculator'
 alias sl='sl -e'
 alias q='exit'
 alias yay='yay -a'
+alias ne='neofetch'
 
 mkcd ()
 {
