@@ -20,6 +20,7 @@ set number
 set relativenumber
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
+set viminfo='20,<1000
 syntax on
 
 let &t_SI = "\<Esc>[6 q"
