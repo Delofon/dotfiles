@@ -138,7 +138,7 @@ launchbg ()
 {
     if [ -z $1 ]; then
         echo "Usage: ${FUNCNAME} <COMMAND> [COMMAND options]";
-        echo "${FUNCNAME} is a short for <COMMAND> [COMMAND options] 0> /dev/null 1>&0 2>&0 & disown";
+        echo "${FUNCNAME} is short for <COMMAND> [COMMAND options] 0> /dev/null 1>&0 2>&0 & disown";
         return 0;
     fi;
     $@ 0> /dev/null 1>&0 2>&0 & disown

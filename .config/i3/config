@@ -1,5 +1,5 @@
 # DEPENDENCIES
-# dex dmenu maim nitrogen playerctl udiskie xautolock xclip xdotool xss-lock
+# dex dmenu maim nitrogen picom playerctl udiskie xautolock xclip xdotool xss-lock
 
 # --------------------------------------
 # setup
@@ -22,6 +22,9 @@ font pango:monospace 8
 
 # .desktop autostart
 exec --no-startup-id dex --autostart --environment i3
+
+# start compositor
+exec --no-startup-id "picom -b"
 
 #exec --no-startup-id nm-applet
 
@@ -205,7 +208,7 @@ exec --no-startup-id udiskie
 exec --no-startup-id playerctld daemon
 
 # sleep+lock
-exec --no-startup-id xautolock -detectsleep -time 30 -locker "systemctl suspend"
+exec --no-startup-id xautolock -detectsleep -time 60 -locker "systemctl suspend"
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
 bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
 bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
