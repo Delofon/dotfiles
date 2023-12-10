@@ -1,4 +1,8 @@
 .bashrc
+.bashrc_aliases
+.bashrc_colors
+.bashrc_history
+.bashrc_prompt
 .config/i3/config
 .config/i3status/config
 .profile

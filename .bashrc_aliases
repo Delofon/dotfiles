@@ -1,0 +1,32 @@
+# some more ls aliases
+alias ll='ls -lahF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias cls='clear'
+alias mk='mkdir -p'
+alias sysmon='gnome-system-monitor'
+alias taskmgr='sysmon'
+alias calc='gnome-calculator'
+alias sl='sl -e'
+alias q='exit'
+alias yay='yay -a'
+alias ne='neofetch'
+
+eval $(thefuck --alias fuck)
+
+mkcd ()
+{
+    mkdir -p $1 && cd $1
+}
+
+launchbg ()
+{
+    if [ -z $1 ]; then
+        echo "Usage: ${FUNCNAME} <COMMAND> [COMMAND options]";
+        echo "${FUNCNAME} is short for <COMMAND> [COMMAND options] 0> /dev/null 1>&0 2>&0 & disown";
+        return 0;
+    fi;
+    $@ 0> /dev/null 1>&0 2>&0 & disown
+}
+
