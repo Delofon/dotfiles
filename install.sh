@@ -5,6 +5,27 @@ mk()
     mkdir -p $1
 }
 
+symlink()
+{
+    f=$(readlink -f ${linkpath})
+
+    if [ $f = $filpath ]
+    then
+        echo "symlink ${fil} --> ${linkpath} already exists, skipping"
+        return 0
+    fi
+
+    if [ -z $f ]
+    then
+        echo "error: file ${linkpath} already exists"
+        return 1
+    fi
+
+    echo "symlinking ${filpath} to ${linkpath}"
+    ln -s $filpath $linkpath
+    return 0
+}
+
 if [ -n "$1" ]
 then
     OUTDIR="$1"
@@ -22,9 +43,7 @@ do
     linkdir="${OUTDIR}/$(dirname $fil)"
     linkpath="${OUTDIR}/${fil}"
 
-    echo "symlinking ${filpath} to ${linkpath}"
-
     mk $linkdir
-    ln -s $filpath $linkpath
+    symlink 
 done
 
