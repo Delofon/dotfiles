@@ -15,7 +15,7 @@ symlink()
         return 0
     fi
 
-    if [ -z $f ]
+    if [ -n $f ]
     then
         echo "error: file ${linkpath} already exists"
         return 1
