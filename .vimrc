@@ -16,6 +16,8 @@ Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 filetype plugin indent on
 
+set timeoutlen=200
+
 set number
 set relativenumber
 set tabstop=4 shiftwidth=4 expandtab

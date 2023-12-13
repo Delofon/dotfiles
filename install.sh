@@ -7,15 +7,15 @@ mk()
 
 symlink()
 {
-    f=$(readlink -f ${linkpath})
+    f=$(readlink -e ${linkpath})
 
-    if [ $f = $filpath ]
+    if [ "$f" = "$filpath" ]
     then
-        echo "symlink ${fil} --> ${linkpath} already exists, skipping"
+        #echo "symlink ${fil} --> ${linkpath} already exists, skipping"
         return 0
     fi
 
-    if [ -n $f ]
+    if [ -n "$f" ]
     then
         echo "error: file ${linkpath} already exists"
         return 1
