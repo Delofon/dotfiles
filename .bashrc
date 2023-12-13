@@ -8,10 +8,10 @@ case $- in
       *) return;;
 esac
 
-source .bashrc_history
-source .bashrc_prompt
-source .bashrc_colors
-source .bashrc_aliases
+source $HOME/.bashrc_history
+source $HOME/.bashrc_prompt
+source $HOME/.bashrc_colors
+source $HOME/.bashrc_aliases
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
