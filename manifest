@@ -3,6 +3,7 @@
 .bashrc_colors
 .bashrc_history
 .bashrc_prompt
+.config/alacritty/alacritty.yml
 .config/i3/config
 .config/i3status/config
 .profile
