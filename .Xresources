@@ -1,0 +1,39 @@
+Xcursor.size: 24
+
+! special
+*.foreground:   #b2b2b2
+*.background:   #000000
+*.cursorColor:  #b2b2b2
+
+! black
+*.color0:       #000000
+*.color8:       #686868
+
+! red
+*.color1:       #b21818
+*.color9:       #ff5454
+
+! green
+*.color2:       #18b218
+*.color10:      #54ff54
+
+! yellow
+*.color3:       #b26818
+*.color11:      #ffff54
+
+! blue
+*.color4:       #1818b2
+*.color12:      #5454ff
+
+! magenta
+*.color5:       #b218b2
+*.color13:      #ff54ff
+
+! cyan
+*.color6:       #18b2b2
+*.color14:      #54ffff
+
+! white
+*.color7:       #b2b2b2
+*.color15:      #ffffff
+
