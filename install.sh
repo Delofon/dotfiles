@@ -37,8 +37,14 @@ cd "$(dirname "$0")"
 
 FILES=$(cat manifest)
 
+IFS=""
 for fil in $FILES
 do
+    if [ "${fil:0:1}" = "#" ]
+    then
+        continue
+    fi
+
     filpath="${PWD}/${fil}"
     linkdir="${OUTDIR}/$(dirname $fil)"
     linkpath="${OUTDIR}/${fil}"
@@ -46,4 +52,5 @@ do
     mk $linkdir
     symlink 
 done
+unset IFS
 
