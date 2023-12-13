@@ -37,7 +37,7 @@ cd "$(dirname "$0")"
 
 FILES=$(cat manifest)
 
-IFS=""
+IFS=$'\n'
 for fil in $FILES
 do
     if [ "${fil:0:1}" = "#" ]
