@@ -218,6 +218,10 @@ bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
 bindsym Shift+Mod4+S exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
 #bindsym Shift+Mod4+S exec --no-startup-id freezecut
 
+# gaps
+gaps inner 10
+gaps outer 10
+
 # extra config
 # --------------------------------------
 # KDE Plasma integration
