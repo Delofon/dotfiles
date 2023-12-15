@@ -21,7 +21,7 @@ set $right l
 font pango:monospace 8
 
 # .desktop autostart
-exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id dex --autostart --environment i3
 
 # start compositor
 exec --no-startup-id "picom -b"
