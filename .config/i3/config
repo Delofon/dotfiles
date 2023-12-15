@@ -24,7 +24,7 @@ font pango:monospace 8
 #exec --no-startup-id dex --autostart --environment i3
 
 # start compositor
-exec --no-startup-id "picom -b"
+exec --no-startup-id "picom -cb --no-vsync"
 
 #exec --no-startup-id nm-applet
 
@@ -227,7 +227,7 @@ exec --no-startup-id nitrogen --restore
 #bindsym Shift+Mod4+S exec --no-startup-id freezecut
 
 # gaps
-gaps inner 10
+#gaps inner 10
 
 # extra config
 # --------------------------------------
