@@ -177,8 +177,8 @@ bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
 bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $meta+R exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
+#bindsym $meta+R exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # reload the configuration file
@@ -204,18 +204,18 @@ bar {
 # extra config
 
 # daemons and stuff
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id udiskie
-exec --no-startup-id playerctld daemon
+#exec --no-startup-id nitrogen --restore
+#exec --no-startup-id udiskie
+#exec --no-startup-id playerctld daemon
 
 # sleep+lock
-exec --no-startup-id xautolock -detectsleep -time 60 -locker "systemctl suspend"
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
-bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
-bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
+#exec --no-startup-id xautolock -detectsleep -time 60 -locker "systemctl suspend"
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
+#bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
+#bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
 
 # screenshot
-bindsym Shift+Mod4+S exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
+#bindsym Shift+Mod4+S exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
 #bindsym Shift+Mod4+S exec --no-startup-id freezecut
 
 # gaps
