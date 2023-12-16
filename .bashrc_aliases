@@ -12,6 +12,7 @@ alias sl='sl -e'
 alias q='exit'
 alias yay='yay -a'
 alias ne='neofetch'
+alias less='less -N'
 
 eval $(thefuck --alias fuck)
 
