@@ -165,11 +165,6 @@ bindsym $mod+r mode "resize"
 #bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 #bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "increase_volume"
-bindsym XF86AudioLowerVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "decrease_volume"
-bindsym XF86AudioMute exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mute"
-bindsym XF86AudioMicMute exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mic_mute"
-
 # extra keys
 # --------------------------------------
 # sensible keybinds
