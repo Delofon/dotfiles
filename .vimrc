@@ -17,6 +17,7 @@ call vundle#end()
 filetype plugin indent on
 
 set timeoutlen=200
+set clipboard=unnamedplus
 
 set number
 set relativenumber
