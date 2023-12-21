@@ -35,7 +35,7 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # container control
 
 floating_modifier Mod1
-tiling_drag off
+tiling_drag titlebar
 workspace_layout tabbed
 focus_follows_mouse no
 
