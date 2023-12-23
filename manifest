@@ -6,6 +6,7 @@
 .config/alacritty/alacritty.yml
 .config/i3/config
 .config/i3status/config
+.config/picom/picom.conf
 .profile
 .tmux.conf
 .vimrc
