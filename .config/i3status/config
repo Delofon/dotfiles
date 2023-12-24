@@ -36,6 +36,12 @@ battery all {
     format = "%status %percentage %remaining"
 }
 
+volume master {
+    format = "%volume"
+    format_muted = "-%volume"
+    device = "pulse"
+}
+
 disk "/" {
     format = "/: %used/%total/%avail"
 }
@@ -49,18 +55,12 @@ load {
 }
 
 memory {
-    format = "RAM: %used|%available"
+    format = "RAM: %used/%available"
     threshold_degraded = "1G"
     format_degraded = "MEMORY < %available"
 }
 
 tztime local {
     format = "%H:%M %d/%m/%Y"
-}
-
-volume master {
-    format = "%volume"
-    format_muted = "-%volume"
-    device = "pulse"
 }
 
