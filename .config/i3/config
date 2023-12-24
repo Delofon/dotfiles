@@ -24,7 +24,7 @@ font pango:monospace 8
 #exec --no-startup-id dex --autostart --environment i3
 
 # start compositor
-exec --no-startup-id "picom -cCFb --no-vsync"
+exec --no-startup-id "picom -b --no-vsync"
 
 #exec --no-startup-id nm-applet
 
