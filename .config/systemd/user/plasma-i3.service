@@ -1,0 +1,12 @@
+[Install]
+WantedBy=plasma-workspace.target
+
+[Unit]
+Description=i3 window manager for KDE Plasma
+before=plasma-workspace.target
+
+[Service]
+ExecStart=/usr/bin/i3
+Slice=session.slice
+Restart=on-failure
+
