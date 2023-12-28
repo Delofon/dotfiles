@@ -1,0 +1,43 @@
+[colors.bright]
+black = "0x686868"
+blue = "0x2121ff"
+cyan = "0x21ffff"
+green = "0x21ff21"
+magenta = "0xff21ff"
+red = "0xff2121"
+white = "0xffffff"
+yellow = "0xffff21"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x1818b2"
+cyan = "0x18b2b2"
+green = "0x18b318"
+magenta = "0xb218b2"
+red = "0xb21818"
+white = "0xcbcbcb"
+yellow = "0xb3b317"
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xb2b2b2"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "DejaVuSansM Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "DejaVuSansM Nerd Font Mono"
+style = "Bold Oblique"
+
+[font.italic]
+family = "DejaVuSansM Nerd Font Mono"
+style = "Oblique"
+
+[font.normal]
+family = "DejaVuSansM Nerd Font Mono"
+style = "Regular"
+
