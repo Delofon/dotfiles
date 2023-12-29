@@ -29,7 +29,7 @@ symlink()
         return 0
     fi
 
-    if [ -n "$f" ] && [ $FORCE = 0 ]
+    if [ -n "$f" ]
     then
         if [ $FORCE = 0 ]
             echo "error: file ${linkpath} already exists"
