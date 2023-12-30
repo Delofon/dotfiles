@@ -23,11 +23,22 @@ mkcd ()
 
 launchbg ()
 {
-    if [ -z $1 ]; then
-        echo "Usage: ${FUNCNAME} <COMMAND> [COMMAND options]";
-        echo "${FUNCNAME} is short for <COMMAND> [COMMAND options] 0> /dev/null 1>&0 2>&0 & disown";
-        return 0;
-    fi;
+    if [ -z $1 ]
+    then
+        echo "Usage: ${FUNCNAME} <COMMAND> [COMMAND options]"
+        echo "${FUNCNAME} is short for <COMMAND> [COMMAND options] 0> /dev/null 1>&0 2>&0 & disown"
+        return 0
+    fi
     $@ 0> /dev/null 1>&0 2>&0 & disown
+}
+
+cd ()
+{
+    if [ $1 = '-' ]
+    then
+        popd > /dev/null 
+        return 0
+    fi
+    pushd $@ > /dev/null
 }
 
