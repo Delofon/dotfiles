@@ -47,7 +47,7 @@ symlink()
     elif [ $MSYS = 1 ]
     then
         printf "mklinking "
-        if [ $DRY = 0 ]; then mklink $filpath $linkpath; fi
+        if [ $DRY = 0 ]; then cmd //c "mklink $filpath $linkpath"; fi
     else
         printf "symlinking "
         if [ $DRY = 0 ]; then ln -s $filpath $linkpath; fi
