@@ -9,6 +9,7 @@ usage()
     printf "\t%-20s Force rewrite existing files when symlinking.\n" "-f, --force"
     printf "\t%-20s Copy instead of symlinking.\n" "-c, --copy"
     printf "\t%-20s Use fixes for MSYS2.\n" "    --msys"
+    printf "\t%-20s Do not do anything (dry run).\n" "    --dry"
 }
 
 mk()
@@ -20,7 +21,7 @@ symlink()
 {
     f=$(readlink -e ${linkpath})
 
-    if [ "$f" = "$filpath" ]
+    if [ "$f" = "$filpath" ] && [ $FORCE = 0 ]
     then
         if [ $VERBOSE = 1 ]
         then
@@ -42,14 +43,14 @@ symlink()
     if [ $COPY = 1 ]
     then
         printf "copying "
-        cp $filpath $linkpath
+        if [ $DRY = 0]; then cp $filpath $linkpath; fi
     elif [ $MSYS = 1 ]
     then
         printf "mklinking "
-        mklink $filpath $linkpath
+        if [ $DRY = 0]; then mklink $filpath $linkpath; fi
     else
         printf "symlinking "
-        ln -s $filpath $linkpath
+        if [ $DRY = 0]; then ln -s $filpath $linkpath; fi
     fi
 
     printf "${filpath} to ${linkpath}\n"
@@ -61,6 +62,7 @@ VERBOSE=0
 FORCE=0
 COPY=0
 MSYS=0
+DRY=0
 
 ARGS=()
 
@@ -85,6 +87,10 @@ do
             ;;
         --msys)
             MSYS=1
+            shift
+            ;;
+        --dry)
+            DRY=1
             shift
             ;;
         -*|--*)
