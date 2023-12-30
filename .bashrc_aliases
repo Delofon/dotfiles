@@ -36,7 +36,12 @@ cd ()
 {
     if [ $1 = '-' ]
     then
-        popd > /dev/null 
+        popd > /dev/null 2>&1
+        if [ $? = '1' ]
+        then
+            popd -n > /dev/null 2>&1
+            popd > /dev/null 2>&1
+        fi
         return 0
     fi
     pushd $@ > /dev/null
