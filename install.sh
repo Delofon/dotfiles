@@ -39,17 +39,20 @@ symlink()
         rm -f ${linkpath}
     fi
 
-    echo "symlinking ${filpath} to ${linkpath}"
-
     if [ $COPY = 1 ]
     then
+        printf "copying "
         cp $filpath $linkpath
     elif [ $MSYS = 1 ]
     then
+        printf "mklinking "
         mklink $filpath $linkpath
     else
+        printf "symlinking "
         ln -s $filpath $linkpath
     fi
+
+    printf "${filpath} to ${linkpath}\n"
 
     return 0
 }
