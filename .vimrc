@@ -13,7 +13,8 @@ call plug#end()
 
 filetype plugin indent on
 
-set timeoutlen=200
+set ttimeout
+set ttimeoutlen=100
 set clipboard=unnamedplus
 
 set number
@@ -29,4 +30,6 @@ let &t_EI = "\<Esc>[2 q"
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+nnoremap n nzz
+nnoremap N Nzz
 
