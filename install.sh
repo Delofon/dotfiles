@@ -37,20 +37,20 @@ symlink()
             echo "error: file ${linkpath} already exists"
             return 1
         fi
-        rm -f ${linkpath}
+        if [ $DRY = 0 ]; then rm -f ${linkpath}; fi
     fi
 
     if [ $COPY = 1 ]
     then
         printf "copying "
-        if [ $DRY = 0]; then cp $filpath $linkpath; fi
+        if [ $DRY = 0 ]; then cp $filpath $linkpath; fi
     elif [ $MSYS = 1 ]
     then
         printf "mklinking "
-        if [ $DRY = 0]; then mklink $filpath $linkpath; fi
+        if [ $DRY = 0 ]; then mklink $filpath $linkpath; fi
     else
         printf "symlinking "
-        if [ $DRY = 0]; then ln -s $filpath $linkpath; fi
+        if [ $DRY = 0 ]; then ln -s $filpath $linkpath; fi
     fi
 
     printf "${filpath} to ${linkpath}\n"
