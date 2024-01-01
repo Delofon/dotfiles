@@ -13,6 +13,8 @@ call plug#end()
 
 filetype plugin indent on
 
+set nowrap
+
 set ttimeout
 set ttimeoutlen=100
 set clipboard=unnamedplus
