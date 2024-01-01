@@ -34,6 +34,13 @@ launchbg ()
 
 cd ()
 {
+    if [ $1 = '--' ]
+    then
+        shift
+        command cd $@
+        return $?
+    fi
+
     if [ $1 = '-' ]
     then
         popd > /dev/null 2>&1
@@ -45,5 +52,6 @@ cd ()
         return 0
     fi
     pushd $@ > /dev/null
+    return $?
 }
 
