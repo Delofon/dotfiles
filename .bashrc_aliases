@@ -34,11 +34,13 @@ launchbg ()
 
 cd ()
 {
+    IFS=''
     if [ $1 = '--' ]
     then
         shift
         command cd $@
-        return $?
+        unset IFS
+        return 0
     fi
 
     if [ $1 = '-' ]
@@ -49,9 +51,11 @@ cd ()
             popd -n > /dev/null 2>&1
             popd > /dev/null 2>&1
         fi
+        unset IFS
         return 0
     fi
     pushd $@ > /dev/null
-    return $?
+    unset IFS
+    return 0
 }
 
