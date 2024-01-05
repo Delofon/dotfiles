@@ -32,6 +32,8 @@ let &t_EI = "\<Esc>[2 q"
 
 map <space> <leader>
 
+nnoremap Q <nop>
+
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzz
@@ -40,7 +42,13 @@ noremap <silent> <leader>pv :Ex!<cr>
 nnoremap <silent> ZZ :w <bar> Ex!<cr>
 nnoremap <silent> ZQ :earlier 1f <bar> Ex!<cr>
 
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
 let g:netrw_banner = 0
+let g:netrw_sizestyle = "h"
 
 function! NetrwConfig()
     set number
@@ -48,6 +56,8 @@ function! NetrwConfig()
 
     nmap <buffer> l <cr>
     nmap <buffer> <silent> h u
+    nmap <buffer> ZZ :q<cr>
+    nmap <buffer> ZQ :q<cr>
 endfunction
 
 augroup netrw
