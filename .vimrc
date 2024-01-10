@@ -6,6 +6,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-sensible'
 
 call plug#end()
 
@@ -13,8 +14,6 @@ set background=dark
 
 set nowrap
 
-set ttimeout
-set ttimeoutlen=100
 set clipboard=unnamedplus
 
 set showcmd
@@ -47,6 +46,10 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
 let g:netrw_banner = 0
 let g:netrw_sizestyle = "h"
 
@@ -64,5 +67,4 @@ augroup netrw
     autocmd!
     autocmd filetype netrw call NetrwConfig()
 augroup END
-
 
