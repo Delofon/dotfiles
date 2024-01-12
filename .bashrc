@@ -51,5 +51,7 @@ fi
 # Add .NET Core SDK tools
 export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
 
+export GPG_TTY=$(tty)
+
 neofetch
 
