@@ -208,7 +208,7 @@ bar {
 # extra config
 
 # daemons and stuff
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id "sleep 5; nitrogen --restore"
 #exec --no-startup-id udiskie
 #exec --no-startup-id playerctld daemon
 
