@@ -12,17 +12,16 @@ call plug#end()
 
 set background=dark
 
-set nowrap
-
-set clipboard=unnamedplus
-
+set mouse=a
 set showcmd
 
 set number
 set relativenumber
+set nowrap
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 set viminfo='20,<1000
+set clipboard=unnamedplus
 syntax on
 
 let &t_SI = "\<Esc>[6 q"
