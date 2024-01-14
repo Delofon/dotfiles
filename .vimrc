@@ -49,6 +49,8 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
+nnoremap <silent> <leader>cf :LspCodeAction<cr>
+
 let g:netrw_banner = 0
 let g:netrw_sizestyle = "h"
 
