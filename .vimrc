@@ -32,6 +32,7 @@ map <space> <leader>
 
 nnoremap Q <nop>
 
+nnoremap dw bdw
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzz
