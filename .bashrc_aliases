@@ -44,17 +44,17 @@ todo ()
 
     if [ -n "$TODO" ]
     then
-        printf "====================TODOs:\n%s\n" $TODO
+        printf "====================\n%s\n" $TODO
     fi
 
     if [ -n "$FIXME" ]
     then
-        printf "====================FIXMEs:\n%s\n" $FIXME
+        printf "====================\n%s\n" $FIXME
     fi
 
     if [ -n "$XXX" ]
     then
-        printf "====================XXXs:\n%s\n" $XXX
+        printf "====================\n%s\n" $XXX
     fi
 
     unset IFS
