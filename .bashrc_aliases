@@ -32,6 +32,34 @@ launchbg ()
     $@ 0> /dev/null 1>&0 2>&0 & disown
 }
 
+todo ()
+{
+    grp="grep --exclude-dir=.git --color=always -rn"
+
+    TODO=$($grp "TODO")
+    FIXME=$($grp "FIXME")
+    XXX=$($grp "XXX")
+
+    IFS=''
+
+    if [ -n "$TODO" ]
+    then
+        printf "====================TODOs:\n%s\n" $TODO
+    fi
+
+    if [ -n "$FIXME" ]
+    then
+        printf "====================FIXMEs:\n%s\n" $FIXME
+    fi
+
+    if [ -n "$XXX" ]
+    then
+        printf "====================XXXs:\n%s\n" $XXX
+    fi
+
+    unset IFS
+}
+
 cd ()
 {
     IFS=''
