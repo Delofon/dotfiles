@@ -15,6 +15,8 @@ alias ne='neofetch'
 alias less='less -N'
 alias neofetch='fastfetch -c neofetch'
 
+alias reload='source ~/.bashrc'
+
 eval $(thefuck --alias fuck)
 
 mkcd ()
