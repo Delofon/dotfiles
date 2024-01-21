@@ -8,6 +8,7 @@
 .config/i3status/config
 .config/picom/picom.conf
 .config/systemd/user/plasma-i3.service
+.local/share/fastfetch/presets/neofetch.jsonc
 .profile
 .tmux.conf
 .vimrc
