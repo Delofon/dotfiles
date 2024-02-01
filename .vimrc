@@ -38,7 +38,7 @@ nnoremap n nzz
 nnoremap N Nzz
 noremap <silent> <leader>pv :Ex!<cr>
 nnoremap <silent> ZZ :w <bar> Ex!<cr>
-nnoremap <silent> ZQ :earlier 1f <bar> Ex!<cr>
+nnoremap <silent> ZQ :e! <bar> Ex!<cr>
 
 noremap <up> <nop>
 noremap <down> <nop>
