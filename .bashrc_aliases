@@ -37,7 +37,14 @@ launchbg ()
 
 todo ()
 {
-    grp="grep --exclude-dir=.git --exclude=.bashrc_aliases --color=always -rn"
+    clr="always"
+
+    if ! [ -t 1 ]
+    then
+        clr="auto"
+    fi
+
+    grp="grep --exclude-dir=.git --exclude=.bashrc_aliases --color=${clr} -rn"
 
     TODO=$($grp "TODO")
     FIXME=$($grp "FIXME")
