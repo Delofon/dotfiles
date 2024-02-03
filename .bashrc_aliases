@@ -15,9 +15,13 @@ alias ne='neofetch'
 alias less='less -N'
 alias neofetch='fastfetch -c neofetch'
 
-alias reload='source ~/.bashrc'
-
 eval $(thefuck --alias fuck)
+
+reload ()
+{
+    unset BASHRCSOURCED
+    source $HOME/.bashrc
+}
 
 mkcd ()
 {

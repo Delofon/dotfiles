@@ -8,6 +8,12 @@ case $- in
       *) return;;
 esac
 
+if [ -n "$BASHRCSOURCED" ]
+then
+    return
+fi
+BASHRCSOURCED=1
+
 source $HOME/.bashrc_history
 source $HOME/.bashrc_prompt
 source $HOME/.bashrc_colors
@@ -53,5 +59,9 @@ export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
 
 export GPG_TTY=$(tty)
 
-neofetch
+if [ -z "$NEOFETCHCALLED" ]
+then
+    neofetch
+    NEOFETCHCALLED=1
+fi
 
