@@ -26,6 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+export TERMINAL="alacritty"
+
 export MGFXC_WINE_PATH=$HOME/.winemonogame
 
 export DOOMWADDIR=$HOME/doom
