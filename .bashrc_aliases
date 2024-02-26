@@ -36,9 +36,7 @@ launchbg ()
         echo "${FUNCNAME} is short for <COMMAND> [COMMAND options] 0> /dev/null 1>&0 2>&0 & disown"
         return 0
     fi
-    IFS=""
-    $@ 0> /dev/null 1>&0 2>&0 & disown
-    unset IFS
+    "$@" 0> /dev/null 1>&0 2>&0 & disown
 }
 
 todo ()
