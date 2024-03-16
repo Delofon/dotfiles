@@ -4,6 +4,7 @@
 .bashrc_history
 .bashrc_prompt
 .config/alacritty/alacritty.toml
+.config/dunst/dunstrc
 .config/i3/config
 .config/i3status/config
 .config/picom/picom.conf
