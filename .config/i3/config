@@ -166,7 +166,7 @@ bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT
 bindsym F4                   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 bindsym XF86AudioPlay  exec --no-startup-id playerctl play-pause
-bindsym XF86Calculator exec --no-startup-id "alacritty --class Alacritty,IPython -T IPython -e ipython"
+bindsym XF86Calculator exec --no-startup-id "alacritty -T IPython -e ipython"
 #bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
 # extra keys
