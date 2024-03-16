@@ -221,6 +221,7 @@ exec --no-startup-id udiskie
 exec --no-startup-id playerctld daemon
 exec --no-startup-id "unclutter -b"
 exec --no-startup-id numlockx
+exec --no-startup-id dunst
 
 # sleep+lock
 exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
