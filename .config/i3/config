@@ -6,9 +6,9 @@
 
 # Mod1 - alt
 # Mod4 - super
-set $alt Mod1
+set $alt   Mod1
 set $super Mod4
-set $meta Mod4
+set $meta  Mod4
 
 set $mod Mod4
 
@@ -222,6 +222,7 @@ exec --no-startup-id playerctld daemon
 exec --no-startup-id "unclutter -b"
 exec --no-startup-id numlockx
 exec --no-startup-id dunst
+exec --no-startup-id sbxkb
 
 # sleep+lock
 exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
