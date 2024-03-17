@@ -74,7 +74,7 @@ do
             exit 0
             ;;
         -v|--verbose)
-            VERBOSE=1
+            VERBOSE=$(( $VERBOSE + 1 ))
             shift
             ;;
         -f|--force)
@@ -120,8 +120,16 @@ FILES=$(cat manifest)
 IFS=$'\n'
 for fil in $FILES
 do
+    if [ $VERBOSE = 2 ]
+    then
+        printf "processing fil: %s\n" "$fil"
+    fi
     if [ "${fil:0:1}" = "#" ]
     then
+        if [ $VERBOSE = 2 ]
+        then
+            printf "fil is a comment, skipping\n"
+        fi
         continue
     fi
 
