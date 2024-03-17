@@ -1,0 +1,6 @@
+Foo
+i3-nagbar -m "Foo called"
+Bar
+i3-nagbar -m "Bar called"
+FooBar
+i3-nagbar -m "FooBar called"

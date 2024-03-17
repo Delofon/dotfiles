@@ -1,0 +1,12 @@
+Logout
+i3-msg exit
+Suspend
+systemctl suspend
+Hibernate
+systemctl hibernate
+Reboot
+systemctl reboot
+Shutdown
+systemctl poweroff
+Switch user
+i3-nagbar -m "Fuck no"

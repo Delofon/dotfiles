@@ -1,3 +1,9 @@
+bin/build_and_run_prompt.sh
+# https://gist.github.com/Delofon/52f2bd5a853c9f8d31fe10f369014569
+bin/da.h
+bin/debugitems
+bin/logoutprompt.c
+bin/promptitems
 .bashrc
 .bashrc_aliases
 .bashrc_colors

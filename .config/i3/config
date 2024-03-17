@@ -191,7 +191,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exit
+#bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exec --no-startup-id build_and_run_prompt.sh
 
 # using plasma's logout screen instead of i3's
 #bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
@@ -222,7 +223,7 @@ exec --no-startup-id playerctld daemon
 exec --no-startup-id "unclutter -b"
 exec --no-startup-id numlockx
 exec --no-startup-id dunst
-exec --no-startup-id sbxkb
+exec --no-startup-id "sleep 1; sbxkb"
 
 # sleep+lock
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
