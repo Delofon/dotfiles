@@ -40,6 +40,16 @@ tiling_drag titlebar
 workspace_layout tabbed
 focus_follows_mouse no
 
+# mouseless mouse controls
+bindsym $alt+Shift+$left  exec --no-startup-id xdotool mousemove_relative -- -20   0
+bindsym $alt+Shift+$down  exec --no-startup-id xdotool mousemove_relative --   0  20
+bindsym $alt+Shift+$up    exec --no-startup-id xdotool mousemove_relative --   0 -20
+bindsym $alt+Shift+$right exec --no-startup-id xdotool mousemove_relative --  20   0
+
+bindsym $alt+Shift+i exec --no-startup-id xdotool click 1
+# Ctrl. Lmao.
+bindsym Ctrl+Shift+a exec --no-startup-id xdotool click 3
+
 # change focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
