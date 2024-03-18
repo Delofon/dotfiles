@@ -9,4 +9,4 @@ systemctl reboot
 Shutdown
 systemctl poweroff
 Switch user
-dbus-send --system --dest=org.freedesktop.DisplayManager /org/freedesktop/DisplayManager/Seat0 --type=method_call org.freedesktop.DisplayManager.Seat.SwitchToGreeter
+loginctl lock-session; dbus-send --system --dest=org.freedesktop.DisplayManager /org/freedesktop/DisplayManager/Seat0 --type=method_call org.freedesktop.DisplayManager.Seat.SwitchToGreeter
