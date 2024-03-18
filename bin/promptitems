@@ -9,4 +9,4 @@ systemctl reboot
 Shutdown
 systemctl poweroff
 Switch user
-i3-nagbar -m "Fuck no"
+dbus-send --system --dest=org.freedesktop.DisplayManager /org/freedesktop/DisplayManager/Seat0 --type=method_call org.freedesktop.DisplayManager.Seat.SwitchToGreeter
