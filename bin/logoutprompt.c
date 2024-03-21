@@ -30,7 +30,7 @@ int main(int argc, char **argv)
     FILE *fpromptitems = fopen(argv[1], "rb");
     if(!fpromptitems)
     {
-        fprintf(stderr, "could not open fpromptitems: %s\n", strerror(errno));
+        fprintf(stderr, "could not open file \"%s\": %s\n", argv[1], strerror(errno));
         return 1;
     }
 
@@ -66,9 +66,9 @@ int main(int argc, char **argv)
         arr_t *itemstring = (arr_t*)getitem(&items, i, ARR_SIZE);
         fprintf(stderr, "appending to dmenusb: %s\n", (char*)itemstring->array);
         join(&dmenusb, itemstring);
-        setitem(&dmenusb, "\n", dmenusb.count - 1, CHAR_SIZE);
+        setitem(&dmenusb, "\n", getitemcount(&dmenusb, CHAR_SIZE) - 1, CHAR_SIZE); // ???
     }
-    setitem(&dmenusb, "\0", dmenusb.count - 1, CHAR_SIZE); // ???
+    setitem(&dmenusb, "\0", getitemcount(&dmenusb, CHAR_SIZE) - 1, CHAR_SIZE); // ???
 
     int tochild[2];
     int toparent[2];
@@ -198,6 +198,4 @@ int main(int argc, char **argv)
 
     return 0;
 }
-
-// I saw the face of god, and it was weeping.
 
