@@ -163,7 +163,7 @@ int main(int argc, char **argv)
     close(toparent[RX]);
 
     // weird hack
-    size_t buflen = strlen(buf);
+    size_t buflen = strnlen(buf, sizeof(buf));
     for(int i = 0; i < buflen; i++)
     {
         if(buf[i] == '\n')
