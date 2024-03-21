@@ -1,5 +1,5 @@
 # DEPENDENCIES
-# boomer dex dmenu fbxkb nitrogen picom playerctl spectacle systemd udiskie xautolock xss-lock
+# boomer clipit dex dmenu fbxkb nitrogen picom playerctl spectacle systemd udiskie xautolock xss-lock
 
 # --------------------------------------
 # setup
@@ -234,6 +234,7 @@ exec --no-startup-id "unclutter -b"
 exec --no-startup-id numlockx
 exec --no-startup-id dunst
 exec --no-startup-id "sleep 1; fbxkb"
+exec --no-startup-id clipit
 
 # sleep+lock
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
