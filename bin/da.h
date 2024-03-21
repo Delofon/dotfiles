@@ -17,21 +17,23 @@ typedef struct
 void    createarr   (arr_t *arr,  size_t  capacity);
 void    pushback    (arr_t *arr,  void   *item,  size_t itemsize);
 void    join        (arr_t *arr1, arr_t  *arr2);
+void    cpyitem     (arr_t *arr,  void   *dst,   size_t index, size_t itemsize);
 void   *getitem     (arr_t *arr,  size_t  index, size_t itemsize);
 size_t  getitemcount(arr_t *arr,  size_t  itemsize);
-void    setitem     (arr_t *arr,  void *item,    size_t index, size_t itemsize);
+void    setitem     (arr_t *arr,  void   *item,  size_t index, size_t itemsize);
 void    deletearr   (arr_t *arr);
+
+#endif // DA_H
 
 #ifdef DA_IMPLEMENTATION
 
-#ifndef NUM_OF_EXTRA_ITEMS
-#define NUM_OF_EXTRA_ITEMS 16
-#endif
-
-#define TEST_NULL(arr) assert(((arr)->array != 0) && "Tried to access uninitialized array")
+#define TEST_NULL(arr)   assert(((arr)->array != 0) && "Tried to access uninitialized array")
+#define TEST_BOUNDS(arr) assert((itemsize * index < (arr)->capacity) && "Index out of bounds");
 
 void createarr(arr_t *arr, size_t capacity)
 {
+    assert((arr->array == 0));
+
     arr->count = 0;
     arr->capacity = capacity;
 
@@ -46,7 +48,8 @@ void pushback(arr_t *arr, void *item, size_t itemsize)
 
     if(arr->count > arr->capacity)
     {
-        arr->capacity += itemsize * NUM_OF_EXTRA_ITEMS;
+        // multiply old capacity by golden ratio so that pushing back new items is done in amortized constant time
+        arr->capacity *= itemsize * 809 / 500;
         arr->array = realloc(arr->array, arr->capacity);
     }
 
@@ -69,27 +72,37 @@ void join(arr_t *arr1, arr_t *arr2)
     memcpy(arr1->array + arr1->count - arr2->count, arr2->array, arr2->count);
 }
 
+void cpyitem(arr_t *arr, void *dst, size_t index, size_t itemsize)
+{
+    TEST_NULL(arr);
+    TEST_BOUNDS(arr);
+
+    memcpy(dst, arr->array + (itemsize * index), itemsize);
+}
+
+// dangerous; returned pointer may become invalid if join() or pushback() are used after obtaining the reference
+// the pointer has to be dereferenced right after obtaining it, or, even better, cpyitem() should be used instead
 void *getitem(arr_t *arr, size_t index, size_t itemsize)
 {
     TEST_NULL(arr);
+    TEST_BOUNDS(arr);
 
-    assert((itemsize * index < arr->capacity) && "Index out of bounds");
     return arr->array + (itemsize * index);
 }
 
 size_t getitemcount(arr_t *arr, size_t itemsize)
 {
     TEST_NULL(arr);
-
     assert((arr->count % itemsize == 0) && "Incorrect item size");
+
     return arr->count / itemsize;
 }
 
 void setitem(arr_t *arr, void *item, size_t index, size_t itemsize)
 {
     TEST_NULL(arr);
+    TEST_BOUNDS(arr);
 
-    assert((itemsize * index < arr->capacity) && "Index out of bounds");
     memcpy(arr->array + index * itemsize, item, itemsize);
 }
 
@@ -98,10 +111,10 @@ void deletearr(arr_t *arr)
     TEST_NULL(arr);
 
     free(arr->array);
+    arr->array = 0;
     arr->count = 0;
     arr->capacity = 0;
 }
 
 #endif // DA_IMPLEMENTATION
-#endif // DA_H
 
