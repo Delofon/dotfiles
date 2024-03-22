@@ -235,6 +235,7 @@ exec --no-startup-id numlockx
 exec --no-startup-id dunst
 exec --no-startup-id "sleep 1; fbxkb"
 exec --no-startup-id clipit
+exec --no-startup-id kdeconnect-indicator
 
 # sleep+lock
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
