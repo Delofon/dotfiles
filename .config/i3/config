@@ -1,5 +1,5 @@
 # DEPENDENCIES
-# boomer clipit dex dmenu fbxkb nitrogen picom playerctl spectacle systemd udiskie xautolock xss-lock
+# boomer clipit dex dmenu fbxkb nitrogen picom playerctl spectacle systemd udiskie xidlehook xss-lock
 
 # --------------------------------------
 # setup
@@ -238,6 +238,7 @@ exec --no-startup-id clipit
 
 # sleep+lock
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
+exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 300 "loginctl lock-session" "" --timer 3600 "systemctl suspend" ""
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 0a0000
 bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
 bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
