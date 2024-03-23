@@ -14,6 +14,7 @@ bin/promptitems
 .config/dunst/dunstrc
 .config/i3/config
 .config/i3status/config
+.config/kitty/kitty.conf
 .config/picom/picom.conf
 .config/systemd/user/plasma-i3.service
 .local/share/fastfetch/presets/neofetch.jsonc
