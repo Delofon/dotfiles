@@ -49,7 +49,7 @@ void pushback(arr_t *arr, void *item, size_t itemsize)
     if(arr->count > arr->capacity)
     {
         // multiply old capacity by golden ratio so that pushing back new items is done in amortized constant time
-        arr->capacity *= itemsize * 809 / 500;
+        arr->capacity *= 809 / 500;
         arr->array = realloc(arr->array, arr->capacity);
     }
 
