@@ -228,7 +228,7 @@ exec --no-startup-id displaylayout.sh
 
 # daemons and stuff
 #exec --no-startup-id "sleep 0.5; nitrogen --restore"
-exec --no-startup-id udiskie
+exec --no-startup-id "udiskie -s"
 exec --no-startup-id playerctld daemon
 exec --no-startup-id "unclutter -b"
 exec --no-startup-id numlockx
