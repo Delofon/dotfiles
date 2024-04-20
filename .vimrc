@@ -32,8 +32,8 @@ map <space> <leader>
 
 nnoremap Q <nop>
 
-"nnoremap <C-d> <C-d>zz
-"nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 nnoremap n nzz
 nnoremap N Nzz
 noremap <silent> <leader>pv :Ex!<cr>
