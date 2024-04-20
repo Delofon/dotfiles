@@ -49,7 +49,7 @@ todo ()
         clr="auto"
     fi
 
-    grp="grep --exclude-dir=.git --exclude=$(basename ${BASH_SOURCE}) --color=${clr} -rn"
+    grp="grep --exclude-dir=.git --exclude=$(basename ${BASH_SOURCE}) --color=${clr} -rn $@"
 
     TODO=$($grp "TODO")
     FIXME=$($grp "FIXME")
