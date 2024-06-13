@@ -48,7 +48,7 @@ bindsym $alt+Shift+$right exec --no-startup-id xdotool mousemove_relative --  20
 
 bindsym $alt+Shift+i exec --no-startup-id xdotool click 1
 # Ctrl. Lmao.
-bindsym Ctrl+Shift+a exec --no-startup-id xdotool click 3
+#bindsym Ctrl+Shift+a exec --no-startup-id xdotool click 3
 
 # change focus
 bindsym $mod+$left focus left
@@ -250,7 +250,7 @@ bindsym Ctrl+$alt+z exec --no-startup-id boomer
 # screenshot
 #bindsym Shift+$meta+S exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
 #bindsym Shift+$meta+S exec --no-startup-id freezecut
-
+bindsym Print exec --no-startup-id maim -i root --format=png | xclip -selection clipboard -t image/png
 bindsym Shift+$meta+S exec --no-startup-id spectacle -rcb
 
 # gaps
