@@ -16,6 +16,9 @@ alias ff='fastfetch'
 alias less='less -N'
 alias neofetch='fastfetch -c neofetch'
 
+alias ..='cd ..'
+alias ~='cd ~'
+
 eval $(thefuck --alias fuck)
 
 reload ()
