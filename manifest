@@ -1,15 +1,15 @@
-bin/clock
-# https://gist.github.com/Delofon/52f2bd5a853c9f8d31fe10f369014569
-bin/da.h
-bin/debugitems
-bin/dotfile
-bin/logoutprompt.c
-bin/promptitems
 .bashrc
 .bashrc_aliases
 .bashrc_colors
 .bashrc_history
 .bashrc_prompt
+bin/clock
+bin/da.h
+bin/debugitems
+bin/dotfile
+bin/gamescope-steam
+bin/logoutprompt.c
+bin/promptitems
 .config/alacritty/alacritty.toml
 .config/dunst/dunstrc
 .config/i3/config

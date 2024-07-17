@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+AMD_VULKAN_ICD=RADV gamescope -W 1920 -H 1080 -r 144 -s 1.0 --backend drm -O DP-2 -e --force-composition --adaptive-sync -- steam-native -bigpicture
+
