@@ -17,3 +17,6 @@ For example, consider the dotfile `~/.config/i3/config`.
 To manage this dotfile, you need to move it to `dotfiles/.config/i3/config`, then add `.config/i3/config` line to `manifest`.
 `install.sh` will then symlink this dotfile's location in home to it: `~/.config/i3/config` --> `dotfiles/.config/i3/config`
 
+Alternatively, use `bin/dotfile` script:
+`dotfile .config/i3/config`
+
