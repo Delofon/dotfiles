@@ -1,3 +1,28 @@
+#if 0
+
+# Bash code
+
+CC="gcc"
+CFLAGS="-O2"
+
+if ! [ -e "$HOME/bin/logoutprompt" ] || [ "$HOME/bin/logoutprompt.c" -nt "$HOME/bin/logoutprompt" ]
+then
+    "$CC" $CFLAGS $HOME/bin/logoutprompt.c -o $HOME/bin/logoutprompt
+fi
+
+if [ "$1" == "DEBUG" ]
+then
+    $HOME/bin/logoutprompt $HOME/bin/debugitems
+else
+    $HOME/bin/logoutprompt $HOME/bin/promptitems
+fi
+
+exit
+
+#endif
+
+// C code
+
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
