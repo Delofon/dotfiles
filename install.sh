@@ -64,6 +64,7 @@ COPY=0
 MSYS=0
 DRY=0
 
+# store positional arguments in a temporary array
 ARGS=()
 
 while [[ $# -gt 0 ]]
@@ -104,6 +105,7 @@ do
     esac
 done
 
+# move positional arguments from ARGS to argv
 set -- "${ARGS[@]}"
 
 if [ -n "$1" ]
@@ -113,6 +115,7 @@ else
     OUTDIR=$HOME
 fi
 
+# ensure that the current working directory is the dotfiles directory
 cd "$(dirname "$0")"
 
 FILES=$(cat manifest)
