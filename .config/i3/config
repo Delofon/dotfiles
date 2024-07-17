@@ -1,5 +1,5 @@
 # DEPENDENCIES
-# boomer** betterlockscreen* clipit* dex dmenu fbxkb* nitrogen picom playerctl spectacle systemd udiskie xidlehook* xss-lock
+# boomer** betterlockscreen* clipit* dex dmenu fbxkb* nitrogen picom playerctl polkit-kde-agent spectacle systemd udiskie xidlehook* xss-lock
 # * denotes packages from the AUR
 # ** denotes manually built packages
 
@@ -238,6 +238,8 @@ exec --no-startup-id dunst
 exec --no-startup-id "sleep 1; fbxkb"
 exec --no-startup-id clipit
 exec --no-startup-id kdeconnect-indicator
+# KDE's polkit agent so that virt-manager works
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # sleep+lock
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
@@ -255,7 +257,6 @@ bindsym Ctrl+$alt+z exec --no-startup-id boomer
 #bindsym Shift+$meta+S exec --no-startup-id freezecut
 bindsym Print exec --no-startup-id maim -i root --format=png | xclip -selection clipboard -t image/png
 bindsym Shift+$meta+S exec --no-startup-id spectacle -rcb
-
 # gaps
 #gaps inner 10
 
