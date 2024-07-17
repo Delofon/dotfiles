@@ -8,7 +8,7 @@ usage()
     printf "    %-20s Verbose output.\n" "-v, --verbose"
     printf "    %-20s Force rewrite existing files when symlinking.\n" "-f, --force"
     printf "    %-20s Copy instead of symlinking.\n" "-c, --copy"
-    printf "    %-20s Use fixes for MSYS2.\n" "    --msys"
+    printf "    %-20s Use fixes for MSYS2 (untested).\n" "    --msys"
     printf "    %-20s Do not do anything (dry run).\n" "    --dry"
 }
 
