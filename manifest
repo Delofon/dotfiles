@@ -2,6 +2,7 @@ bin/clock
 # https://gist.github.com/Delofon/52f2bd5a853c9f8d31fe10f369014569
 bin/da.h
 bin/debugitems
+bin/dotfile
 bin/logoutprompt.c
 bin/promptitems
 .bashrc
@@ -21,4 +22,3 @@ bin/promptitems
 .tmux.conf
 .vimrc
 .Xresources
-

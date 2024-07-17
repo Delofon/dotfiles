@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+usage()
+{
+    printf "usage: $(basename $0) [options] <file>\n"
+    printf "Automatically add file to dotfile management.\n"
+}
+
+mk()
+{
+    mkdir -p $1
+}
+
+# ensure dotfiles directory exists
+# TODO: add an option to change dotfiles directory
+if ! [ -d "$HOME/dotfiles" ]
+then
+    printf "dotfiles directory does not exist! Clone dotfiles repo to ~/dotfiles!\n"
+    exit 1
+fi
+
+DOTFILES="$HOME/dotfiles"
+
+VERBOSE=0
+ARGS=()
+
+# TODO: options
+while [[ $# -gt 0 ]]
+do
+    case $1 in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -v|--verbose)
+            VERBOSE=$(( $VERBOSE + 1 ))
+            shift
+            ;;
+        -*|--*)
+            printf "Unknown option \"$1\"."
+            exit 1
+            ;;
+        *)
+            ARGS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+set -- "${ARGS[@]}"
+
+# TODO: support adding multiple dotfiles with one command call
+filpath=$(readlink -e "$1")
+
+# https://stackoverflow.com/questions/229551/how-to-check-if-a-string-contains-a-substring-in-bash
+if ! [[ $filpath == "$HOME"* ]]
+then
+    # TODO: Maybe support homeless dotfiles? install.sh has support for homeless install paths.
+    printf "error: dotfile has to be in subdirectory of home\n"
+    exit 2
+fi
+
+# https://stackoverflow.com/questions/16623835/remove-a-fixed-prefix-suffix-from-a-string-in-bash
+dotfilespath=${filpath#"$HOME/"}
+
+# TODO: multiple backups
+cp "$DOTFILES/manifest" "$DOTFILES/manifest.bak"
+echo "$dotfilespath" >> "$DOTFILES/manifest"
+
+# sort manifest file because manifest is prettier sorted than unsorted
+# combine into one line somehow?
+sort -u "$DOTFILES/manifest" > "$DOTFILES/manifest-sorted"
+rm "$DOTFILES/manifest"
+mv "$DOTFILES/manifest-sorted" "$DOTFILES/manifest"
+
+mv "$filpath" "$DOTFILES/$dotfilespath"
+
+# automatically symlink newly added dotfile
+"$DOTFILES/install.sh"
+
