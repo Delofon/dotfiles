@@ -1,5 +1,5 @@
 # DEPENDENCIES
-# boomer clipit dex dmenu fbxkb nitrogen picom playerctl spectacle systemd udiskie xidlehook xss-lock
+# boomer betterlockscreen clipit dex dmenu fbxkb nitrogen picom playerctl spectacle systemd udiskie xidlehook xss-lock
 
 # --------------------------------------
 # setup
@@ -240,7 +240,8 @@ exec --no-startup-id kdeconnect-indicator
 # sleep+lock
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 300 "loginctl lock-session" "" --timer 3600 "systemctl suspend" ""
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 0a0000
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 0a0000
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen --color 000000 -l
 bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
 bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
 
