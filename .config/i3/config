@@ -1,5 +1,7 @@
 # DEPENDENCIES
-# boomer betterlockscreen clipit dex dmenu fbxkb nitrogen picom playerctl spectacle systemd udiskie xidlehook xss-lock
+# boomer** betterlockscreen* clipit* dex dmenu fbxkb* nitrogen picom playerctl spectacle systemd udiskie xidlehook* xss-lock
+# * denotes packages from the AUR
+# ** denotes manually built packages
 
 # --------------------------------------
 # setup
