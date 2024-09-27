@@ -28,6 +28,7 @@ fi
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 
+export EDITOR="vim"
 export TERMINAL="alacritty"
 
 export MGFXC_WINE_PATH=$HOME/.winemonogame
