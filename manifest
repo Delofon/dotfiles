@@ -10,6 +10,7 @@ bin/dotfile
 bin/gamescope-steam
 bin/logoutprompt.c
 bin/promptitems
+bin/update
 bin/vimsudo
 .config/alacritty/alacritty.toml
 .config/dunst/dunstrc

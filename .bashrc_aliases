@@ -16,6 +16,8 @@ alias ff='fastfetch'
 alias less='less -N'
 alias neofetch='fastfetch -c neofetch'
 
+alias up='update'
+
 alias ..='cd ..'
 alias ~='cd ~'
 
