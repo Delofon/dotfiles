@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 fil=$1
-TMP=`mktemp /tmp/vimsudo.XXXXXX`
+filname=$(basename "$fil")
+TMP=`mktemp /tmp/${filname}.vimsudo.XXXXXX`
 sudo cat "$fil" > ${TMP}
 vim ${TMP}
 cat ${TMP} | sudo tee "$fil" > /dev/null
