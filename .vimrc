@@ -18,6 +18,7 @@ set showcmd
 set number
 set relativenumber
 set nowrap
+set list
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 set viminfo='20,<1000
@@ -40,7 +41,7 @@ noremap <silent> <leader>pv :Ex!<cr>
 nnoremap <silent> ZZ :w <bar> Ex!<cr>
 nnoremap <silent> ZQ :e! <bar> Ex!<cr>
 nnoremap cw ciw
-"nnoremap dw bdw
+nnoremap dw daw
 
 noremap <up> <nop>
 noremap <down> <nop>
