@@ -42,6 +42,8 @@ nnoremap <silent> ZZ :w <bar> Ex!<cr>
 nnoremap <silent> ZQ :e! <bar> Ex!<cr>
 nnoremap cw ciw
 nnoremap dw daw
+nnoremap cW ciW
+nnoremap dW daW
 
 noremap <up> <nop>
 noremap <down> <nop>
