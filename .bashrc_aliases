@@ -18,6 +18,9 @@ alias neofetch='fastfetch -c neofetch'
 
 alias up='update'
 
+# p is close enough to -
+# ig one could say that "previous directory" abbreviates to "pp", because it's *p*revious... ehrm... yeah it doesn't work
+alias pp='cd -'
 alias ..='cd ..'
 alias ~='cd ~'
 
@@ -80,6 +83,7 @@ todo ()
     unset IFS
 }
 
+# TODO: rewrite this scheite (cd)
 cd ()
 {
     IFS=''
