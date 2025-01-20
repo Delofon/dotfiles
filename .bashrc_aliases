@@ -59,9 +59,9 @@ todo ()
 
     grp="grep --exclude-dir=.git --exclude=$(basename ${BASH_SOURCE}) --color=${clr} -rn $@"
 
-    TODO=$($grp "TODO")
-    FIXME=$($grp "FIXME")
-    XXX=$($grp "XXX")
+    TODO=$($grp "TODO:")
+    FIXME=$($grp "FIXME:")
+    XXX=$($grp "XXX:")
 
     IFS=''
 
