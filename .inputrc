@@ -1,3 +1,5 @@
-TAB: menu-complete
+   TAB: menu-complete
+"\e[Z": menu-complete-backward
+
 set show-all-if-ambiguous on
 
