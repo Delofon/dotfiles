@@ -38,8 +38,10 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzz
 nnoremap N Nzz
 noremap <silent> <leader>pv :Ex!<cr>
-nnoremap <silent> ZZ :w <bar> Ex!<cr>
-nnoremap <silent> ZQ :e! <bar> Ex!<cr>
+"nnoremap <silent> ZZ :w <bar> Ex!<cr>
+"nnoremap <silent> ZQ :e! <bar> Ex!<cr>
+nnoremap <silent> <leader>wq :w  <bar> Ex!<cr>
+nnoremap <silent> <leader>q  :e! <bar> Ex!<cr>
 nnoremap cw ciw
 nnoremap dw daw
 nnoremap cW ciW
