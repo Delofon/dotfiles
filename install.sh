@@ -141,7 +141,7 @@ do
     linkpath="${OUTDIR}/${fil}"
 
     mk $linkdir
-    symlink 
+    symlink
 done
 unset IFS
 
