@@ -1,5 +1,7 @@
 # DEPENDENCIES
-# boomer** betterlockscreen* clipit* dex dmenu fbxkb* nitrogen picom playerctl polkit-kde-agent spectacle systemd udiskie xidlehook* xss-lock
+# boomer** betterlockscreen* dex dmenu fbxkb* nitrogen picom playerctl
+# polkit-kde-agent spectacle systemd udiskie xfce4-clipman xidlehook* xss-lock
+#
 # * denotes packages from the AUR
 # ** denotes manually built packages
 
@@ -28,9 +30,6 @@ exec --no-startup-id dex --autostart --environment i3
 # start compositor
 exec --no-startup-id "picom -b"
 
-# not needed; autostarted by dex
-#exec --no-startup-id nm-applet
-
 set $refresh_i3status killall -SIGUSR1 i3status
 
 # setup
@@ -41,16 +40,6 @@ floating_modifier $alt
 tiling_drag titlebar
 workspace_layout tabbed
 focus_follows_mouse no
-
-# mouseless mouse controls
-bindsym $alt+Shift+$left  exec --no-startup-id xdotool mousemove_relative -- -20   0
-bindsym $alt+Shift+$down  exec --no-startup-id xdotool mousemove_relative --   0  20
-bindsym $alt+Shift+$up    exec --no-startup-id xdotool mousemove_relative --   0 -20
-bindsym $alt+Shift+$right exec --no-startup-id xdotool mousemove_relative --  20   0
-
-bindsym $alt+Shift+i exec --no-startup-id xdotool click 1
-# Ctrl. Lmao.
-#bindsym Ctrl+Shift+a exec --no-startup-id xdotool click 3
 
 # change focus
 bindsym $mod+$left focus left
@@ -175,7 +164,7 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%      && $refresh_i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%      && $refresh_i3status
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym F4                   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#bindsym F4                   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 bindsym XF86AudioPlay  exec --no-startup-id playerctl play-pause
 bindsym XF86Calculator exec --no-startup-id "alacritty -T IPython -e ipython"
@@ -229,16 +218,15 @@ bar {
 exec --no-startup-id displaylayout.sh
 
 # daemons and stuff
-#exec --no-startup-id "sleep 0.5; nitrogen --restore"
 exec --no-startup-id "udiskie -s"
 exec --no-startup-id playerctld daemon
 exec --no-startup-id "unclutter -b"
 exec --no-startup-id numlockx
 exec --no-startup-id dunst
 exec --no-startup-id "sleep 1; fbxkb"
-exec --no-startup-id clipit
+exec --no-startup-id xfce4-clipman
 exec --no-startup-id kdeconnect-indicator
-# KDE's polkit agent so that virt-manager works
+# start KDE's polkit agent so that virt-manager works
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # sleep+lock
@@ -246,6 +234,7 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 300 "loginctl lock-session" "" --timer 3600 "systemctl suspend" ""
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 0a0000
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen --color 000000 -l
+
 bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
 bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
 
