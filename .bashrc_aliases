@@ -32,7 +32,7 @@ eval $(thefuck --alias fuck)
 
 reload ()
 {
-    unset BASHRCSOURCED
+    unset DBASHRCSOURCED
     source $HOME/.bashrc
 }
 

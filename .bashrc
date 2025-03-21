@@ -8,11 +8,11 @@ case $- in
       *) return;;
 esac
 
-if [ -n "$BASHRCSOURCED" ]
+if [ -n "$DBASHRCSOURCED"]
 then
     return
 fi
-BASHRCSOURCED=1
+DBASHRCSOURCED=1
 
 source $HOME/.bashrc_history
 source $HOME/.bashrc_prompt
