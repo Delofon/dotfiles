@@ -8,7 +8,7 @@ case $- in
       *) return;;
 esac
 
-if [ -n "$DBASHRCSOURCED"]
+if [ -n "$DBASHRCSOURCED" ]
 then
     return
 fi
