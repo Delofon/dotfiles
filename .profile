@@ -33,6 +33,6 @@ export TERMINAL="alacritty"
 
 export MGFXC_WINE_PATH=$HOME/.winemonogame
 
-export DOOMWADDIR=$HOME/doom
-export DOOMWADPATH=$HOME/doom
+export DOOMWADDIR=$HOME/doom/pwads
+export DOOMWADPATH=$HOME/doom/pwads
 
