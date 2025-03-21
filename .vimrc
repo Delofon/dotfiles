@@ -7,6 +7,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-sensible'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
