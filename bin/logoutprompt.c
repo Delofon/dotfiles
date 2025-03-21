@@ -211,8 +211,14 @@ int main(int argc, char **argv)
     }
     index++;
 
+    arr_t *sb_cmd = (arr_t *)getitem(&items, index, ARR_SIZE);
+    sb_cmd->count--;
+    pushback(sb_cmd, " &", 2);
+
+    fprintf(stderr, "execing: %s\n", (char *)sb_cmd->array);
+
     // no I am NOT separating the string by whitespaces
-    system((char*)((arr_t*)getitem(&items, index, ARR_SIZE))->array);
+    system(sb_cmd->array);
 
     for(int i = 0; i < getitemcount(&items, ARR_SIZE); i++)
     {
