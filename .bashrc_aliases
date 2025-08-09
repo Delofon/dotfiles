@@ -21,6 +21,7 @@ alias up='update'
 # get unix timestamp of the specified commit
 # maybe convert to a function?
 alias gitunix='git show -s --format="%ct"'
+alias glol='git log --oneline'
 
 # p is close enough to -
 # ig one could say that "previous directory" abbreviates to "pp", because it's *p*revious... ehrm... yeah it doesn't work
