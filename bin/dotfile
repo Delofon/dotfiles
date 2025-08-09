@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eo pipefail
+
 usage()
 {
     printf "usage: $(basename $0) [options] <file>\n"
@@ -62,6 +64,7 @@ fi
 
 # https://stackoverflow.com/questions/16623835/remove-a-fixed-prefix-suffix-from-a-string-in-bash
 dotfilespath=${filpath#"$HOME/"}
+dotfilesdir="$DOTFILES/$(dirname "${dotfilespath}")"
 
 # TODO: multiple backups
 cp "$DOTFILES/manifest" "$DOTFILES/manifest.bak"
@@ -73,6 +76,7 @@ sort -u "$DOTFILES/manifest" > "$DOTFILES/manifest-sorted"
 rm "$DOTFILES/manifest"
 mv "$DOTFILES/manifest-sorted" "$DOTFILES/manifest"
 
+mk "$dotfilesdir"
 mv "$filpath" "$DOTFILES/$dotfilespath"
 
 # automatically symlink newly added dotfile
