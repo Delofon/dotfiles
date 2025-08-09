@@ -23,7 +23,7 @@ symlink()
 
     if [ "$f" = "$filpath" ] && [ $FORCE = 0 ]
     then
-        if [ $VERBOSE = 1 ]
+        if [ $VERBOSE -ge 1 ]
         then
             echo "symlink ${fil} --> ${linkpath} already exists, skipping"
         fi
@@ -123,13 +123,13 @@ FILES=$(cat manifest)
 IFS=$'\n'
 for fil in $FILES
 do
-    if [ $VERBOSE = 2 ]
+    if [ $VERBOSE -ge 2 ]
     then
         printf "processing fil: %s\n" "$fil"
     fi
     if [ "${fil:0:1}" = "#" ]
     then
-        if [ $VERBOSE = 2 ]
+        if [ $VERBOSE -ge 2 ]
         then
             printf "fil is a comment, skipping\n"
         fi
