@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 sudo pacman -Syu
-flatpak update
+#flatpak update
 yay -a -Syu
 
