@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
+# Edit write protected files without running vim as sudo.
+
 set -e
 
 fil=$1
 filname=$(basename "$fil")
 TMPDIR=`mktemp -d /tmp/vimsudo.XXXXXX`
 TMP="${TMPDIR}/${filname}"
-sudo cat "$fil" > "${TMP}"
-vim "${TMP}"
+
+if [ -e "$fil" ]
+then
+    sudo cat "$fil" > "${TMP}"
+fi
+
+$EDITOR "${TMP}"
+
 cat "${TMP}" | sudo tee "$fil" > /dev/null
 rm -r "${TMPDIR}" # unsafe?
 
