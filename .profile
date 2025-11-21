@@ -26,7 +26,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 export EDITOR="vim"
 export TERMINAL="alacritty"
