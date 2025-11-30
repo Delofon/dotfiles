@@ -1,6 +1,43 @@
 #!/usr/bin/env bash
 
-sudo pacman -Syu
-#flatpak update
-yay -a -Syu
+set -eo pipefail
+
+update_arch()
+{
+    sudo pacman -Syu
+    if [ -e /bin/yay ]
+    then
+        yay -a -Syu
+    fi
+}
+update_debian()
+{
+    sudo apt-get update && sudo apt-get upgrade
+}
+
+if [ -e /etc/os-release ]
+then
+    source /etc/os-release
+else
+    echo "/etc/os-release not found" >&2
+    exit 1
+fi
+
+case "$ID" in
+    arch)
+        update_arch
+        ;;
+    debian|ubuntu)
+        update_debian
+        ;;
+    *)
+        echo "unknown os" >&2
+        exit 2;
+        ;;
+esac
+
+if [ -e /bin/flatpak ]
+then
+    flatpak update
+fi
 
