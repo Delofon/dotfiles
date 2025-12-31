@@ -8,11 +8,12 @@ col()
 }
 
  ngray=`text_attr 0 38`
+ bgray=`text_attr 1 38`
 nwhite=`text_attr 0 37`
 bwhite=`text_attr 1 37`
 ngreen=`text_attr 0 32`
  nblue=`text_attr 0 34`
 blblue=`text_attr 1 36`
 
-PS1="[ $(col \\u $bwhite)@$(col \\H $blblue) $(col \\W $nwhite) ] \$ "
+PS1="[ $(col \\u $bwhite)$(col @ $bgray)$(col \\H $blblue) $(col \\W $nwhite) ] \$ "
 
