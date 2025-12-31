@@ -61,6 +61,7 @@ nnoremap <silent> <leader>cf :LspCodeAction<cr>
 
 let g:netrw_banner = 0
 let g:netrw_sizestyle = "h"
+let g:netrw_keepdir = 0
 
 function! NetrwConfig()
     set number
