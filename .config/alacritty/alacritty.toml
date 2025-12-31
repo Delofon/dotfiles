@@ -1,5 +1,5 @@
 [window]
-opacity = 0.85
+opacity = 0.6
 
 [colors.bright]
 black = "0x686868"
@@ -13,7 +13,8 @@ yellow = "0xffff21"
 
 [colors.normal]
 black = "0x000000"
-blue = "0x1818b2"
+#blue = "0x1818b2"
+blue = "0x5353fc"
 cyan = "0x18b2b2"
 green = "0x18b318"
 magenta = "0xb218b2"
