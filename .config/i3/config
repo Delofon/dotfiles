@@ -1,9 +1,8 @@
 # DEPENDENCIES
-# boomer** betterlockscreen* dex dmenu fbxkb* nitrogen picom playerctl
-# polkit-kde-agent spectacle systemd udiskie xfce4-clipman xidlehook* xss-lock
+# boomer* betterlockscreen* dex dmenu picom playerctl polkit-kde-agent
+# spectacle systemd udiskie xfce4-clipman xidlehook xss-lock
 #
-# * denotes packages from the AUR
-# ** denotes manually built packages
+# * denotes non-system packages as of latest commit
 
 # --------------------------------------
 # setup
@@ -236,7 +235,7 @@ exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-a
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen --color 000000 -l
 
 bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
-bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
+#bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
 
 # https://github.com/tsoding/boomer
 bindsym Ctrl+$alt+z exec --no-startup-id boomer
@@ -246,6 +245,7 @@ bindsym Ctrl+$alt+z exec --no-startup-id boomer
 #bindsym Shift+$meta+S exec --no-startup-id freezecut
 bindsym Print exec --no-startup-id maim -i root --format=png | xclip -selection clipboard -t image/png
 bindsym Shift+$meta+S exec --no-startup-id spectacle -rcb
+
 # gaps
 #gaps inner 10
 
