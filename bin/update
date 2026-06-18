@@ -41,3 +41,9 @@ then
     flatpak update
 fi
 
+if [ -e /bin/fwupdmgr ]
+then
+    fwupdmgr refresh
+    fwupdmgr update
+fi
+
