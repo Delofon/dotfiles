@@ -6,13 +6,14 @@ alias ll='ls -lahF'
 alias la='ls -A'
 #alias l='ls -CF'
 alias l='ll'
+#alias sl='sl -e'
+alias sl='ls'
 
 alias cls='clear'
 alias mk='mkdir -p'
 alias sysmon='gnome-system-monitor'
 alias taskmgr='sysmon'
 alias calc='gnome-calculator'
-alias sl='sl -e'
 alias q='exit'
 alias yay='yay -a'
 alias ne='neofetch'
@@ -66,7 +67,7 @@ todo ()
         clr="auto"
     fi
 
-    grp="grep --exclude-dir=.git --exclude=$(basename ${BASH_SOURCE}) --color=${clr} -rn $@"
+    grp="grep --exclude-dir=.git --exclude=$(basename ${BASH_SOURCE}) --exclude=tags --color=${clr} -rn $@"
 
     TODO=$($grp "TODO:")
     FIXME=$($grp "FIXME:")
