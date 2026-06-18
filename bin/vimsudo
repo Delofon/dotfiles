@@ -2,12 +2,25 @@
 
 # Edit write protected files without running vim as sudo.
 
-set -e
+set -eu
+
+fin()
+{
+    rm -r "${TMPDIR}" # unsafe?
+}
+
+if [ -z ${1:-} ]
+then
+    echo "err: filename required" >&2
+    exit 1
+fi
 
 fil=$1
 filname=$(basename "$fil")
 TMPDIR=`mktemp -d /tmp/vimsudo.XXXXXX`
 TMP="${TMPDIR}/${filname}"
+
+trap fin EXIT
 
 if [ -e "$fil" ]
 then
@@ -17,5 +30,4 @@ fi
 $EDITOR "${TMP}"
 
 cat "${TMP}" | sudo tee "$fil" > /dev/null
-rm -r "${TMPDIR}" # unsafe?
 
