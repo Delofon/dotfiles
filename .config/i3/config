@@ -1,6 +1,6 @@
 # DEPENDENCIES
 # boomer* betterlockscreen* dex dmenu picom playerctl polkit-kde-agent
-# spectacle systemd udiskie xfce4-clipman xidlehook xss-lock
+# spectacle udiskie unclutter xfce4-clipman xss-lock
 #
 # * denotes non-system packages as of latest commit
 
@@ -23,16 +23,71 @@ set $right l
 # Font for window titles.
 font pango:monospace 8
 
+set $refresh_i3status killall -SIGUSR1 i3status
+
+# setup
+# --------------------------------------
+# daemons
+
 # .desktop autostart
 exec --no-startup-id dex --autostart --environment i3
 
 # start compositor
 exec --no-startup-id "picom -b"
 
-set $refresh_i3status killall -SIGUSR1 i3status
+# display config
+exec --no-startup-id displaylayout.sh
 
-# setup
+exec --no-startup-id udiskie -s
+exec --no-startup-id playerctld daemon
+exec --no-startup-id unclutter -b
+exec --no-startup-id numlockx
+exec --no-startup-id dunst
+exec --no-startup-id "sleep 1; fbxkb"
+exec --no-startup-id xfce4-clipman
+exec --no-startup-id kdeconnect-indicator
+# some apps invoke polkit, use KDE's polkit agent for that
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+
+# sleep+lock
+exec --no-startup-id xset s off dpms 0 0 0 -dpms
+exec --no-startup-id xss-lock -l -- betterlockscreen --color 000000 -l
+
+# daemons
 # -------------------------------------
+# bindings
+
+bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Shift+q kill
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec --no-startup-id logoutprompt.c
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle   && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%      && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%      && $refresh_i3status
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#bindsym F4                   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioPlay  exec --no-startup-id playerctl play-pause
+bindsym XF86Calculator exec --no-startup-id "alacritty -T IPython -e ipython"
+
+bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
+
+# https://github.com/tsoding/boomer
+bindsym Ctrl+$alt+z exec --no-startup-id boomer
+
+# screenshot
+#bindsym Shift+$meta+S exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
+#bindsym Shift+$meta+S exec --no-startup-id freezecut
+bindsym Print exec --no-startup-id maim -i root --format=png | xclip -selection clipboard -t image/png
+bindsym Shift+$meta+S exec --no-startup-id spectacle -rcb
+
+# bindings
+# --------------------------------------
 # container control
 
 floating_modifier $alt
@@ -156,50 +211,6 @@ bindsym $mod+r mode "resize"
 
 # container control
 # --------------------------------------
-# extra keys
-
-# Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle   && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%      && $refresh_i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%      && $refresh_i3status
-bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-#bindsym F4                   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-bindsym XF86AudioPlay  exec --no-startup-id playerctl play-pause
-bindsym XF86Calculator exec --no-startup-id "alacritty -T IPython -e ipython"
-#bindsym XF86Calculator exec --no-startup-id gnome-calculator
-
-# extra keys
-# --------------------------------------
-# sensible keybinds
-
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
-bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $meta+R exec i3-sensible-terminal
-bindsym $mod+Shift+q kill
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-#bindsym $mod+Shift+e exit
-bindsym $mod+Shift+e exec --no-startup-id logoutprompt.c
-
-# using plasma's logout screen instead of i3's
-#bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
-#bindsym $mod+shift+e exec --no-startup-id qdbus org.kde.LogoutPrompt /LogoutPrompt org.kde.LogoutPrompt.promptLogout
-
-# sensible keybinds
-# --------------------------------------
 # bar
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -210,76 +221,5 @@ bar {
 }
 
 # bar
-# --------------------------------------
-# extra config
-
-# display config
-exec --no-startup-id displaylayout.sh
-
-# daemons and stuff
-exec --no-startup-id "udiskie -s"
-exec --no-startup-id playerctld daemon
-exec --no-startup-id "unclutter -b"
-exec --no-startup-id numlockx
-exec --no-startup-id dunst
-exec --no-startup-id "sleep 1; fbxkb"
-exec --no-startup-id xfce4-clipman
-exec --no-startup-id kdeconnect-indicator
-# start KDE's polkit agent so that virt-manager works
-exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-
-# sleep+lock
-#exec --no-startup-id xautolock -detectsleep -time 5 -locker "loginctl lock-session" -killtime 60 -killer "systemctl suspend"
-exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 300 "loginctl lock-session" "" --timer 3600 "systemctl suspend" ""
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 0a0000
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen --color 000000 -l
-
-bindsym $mod+Shift+z exec --no-startup-id loginctl lock-session
-#bindsym $mod+Shift+x exec --no-startup-id "sleep 0.5; systemctl suspend"
-
-# https://github.com/tsoding/boomer
-bindsym Ctrl+$alt+z exec --no-startup-id boomer
-
-# screenshot
-#bindsym Shift+$meta+S exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
-#bindsym Shift+$meta+S exec --no-startup-id freezecut
-bindsym Print exec --no-startup-id maim -i root --format=png | xclip -selection clipboard -t image/png
-bindsym Shift+$meta+S exec --no-startup-id spectacle -rcb
-
-# gaps
-#gaps inner 10
-
-# extra config
-# --------------------------------------
-# KDE Plasma integration
-
-for_window [title="Desktop — Plasma"] kill, floating enable, border none
-for_window [title="Desktop @ QRect.*"] kill, floating enable, border none
-for_window [class="plasmashell"] floating enable
-for_window [class="Plasma"] floating enable, border none
-for_window [title="plasma-desktop"] floating enable, border none
-for_window [title="win7"] floating enable, border none
-for_window [class="krunner"] floating enable, border none
-for_window [class="Kmix"] floating enable, border none
-for_window [class="Klipper"] floating enable, border none
-for_window [class="Plasmoidviewer"] floating enable, border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move position center
-no_focus [class="plasmashell" window_type="notification"] 
-
-no_focus [class="plasmashell"]
-no_focus [window_role="pop-up"]
-no_focus [window_type="notification"]
-
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_role="About"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-for_window [instance="__scratchpad"] floating enable
-
-# KDE Plasma integration
 # --------------------------------------
 
