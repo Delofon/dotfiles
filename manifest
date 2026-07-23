@@ -7,7 +7,6 @@ bin/clock
 bin/da.h
 bin/debugitems
 bin/dotfile
-bin/gamescope-steam
 bin/logoutprompt.c
 bin/promptitems
 bin/update
