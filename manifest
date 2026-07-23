@@ -17,7 +17,6 @@ bin/vimsudo
 .config/i3status/config
 .config/kitty/kitty.conf
 .config/picom/picom.conf
-.config/systemd/user/plasma-i3.service
 .inputrc
 .local/share/fastfetch/presets/neofetch.jsonc
 .profile
