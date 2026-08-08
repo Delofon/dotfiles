@@ -1,10 +1,6 @@
 call plug#begin()
 
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-sensible'
 Plug 'ludovicchabant/vim-gutentags'
@@ -23,9 +19,19 @@ set list
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 set viminfo='20,<1000
-set clipboard=unnamedplus
+set clipboard=unnamedplus " less thinking when copying to/from X
 syntax on
 
+function! Untabify()
+    %s/\t/    /ge
+    norm! ggVG=gg
+endfunction
+function! Tabify()
+    %s/    /\t/ge
+    norm! ggVG=gg
+endfunction
+
+" narrow cursor for insert, block cursor for normal or visual
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
@@ -47,17 +53,12 @@ nnoremap cw ciw
 nnoremap dw daw
 nnoremap cW ciW
 nnoremap dW daW
+nnoremap <leader>tt :call Untabify()<cr>
 
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
-
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-nnoremap <silent> <leader>cf :LspCodeAction<cr>
 
 let g:netrw_banner = 0
 let g:netrw_sizestyle = "h"
