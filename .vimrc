@@ -23,12 +23,20 @@ set clipboard=unnamedplus " less thinking when copying to/from X
 syntax on
 
 function! Untabify()
+    let pos = getpos('.')
+
     %s/\t/    /ge
-    norm! ggVG=gg
+    norm! ggVG=
+
+    call setpos('.', pos)
 endfunction
 function! Tabify()
+    let pos = getpos('.')
+
     %s/    /\t/ge
-    norm! ggVG=gg
+    norm! ggVG=
+
+    call setpos('.', pos)
 endfunction
 
 " narrow cursor for insert, block cursor for normal or visual
