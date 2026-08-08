@@ -26,6 +26,17 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Add .NET Core SDK tools
+if [ -d "$HOME/.dotnet" ]
+then
+    PATH="$PATH:$HOME/.dotnet"
+    if [ -d "$HOME/.dotnet/tools" ]
+    then
+        PATH="$PATH:$HOME/.dotnet/tools"
+    fi
+fi
+
+
 #export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
 export QT_QPA_PLATFORMTHEME=qt6ct
 

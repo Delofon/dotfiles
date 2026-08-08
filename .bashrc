@@ -23,12 +23,12 @@ source $HOME/.bashrc_aliases
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# useful
+shopt -s cdspell
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe.sh ] && eval "$(SHELL=/bin/sh lesspipe.sh)"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -44,9 +44,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# Add .NET Core SDK tools
-export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
 
 export GPG_TTY=$(tty)
 
