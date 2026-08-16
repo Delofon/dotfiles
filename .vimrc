@@ -20,7 +20,9 @@ set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 set viminfo='20,<1000
 set clipboard=unnamedplus " less thinking when copying to/from X
+
 syntax on
+let c_gnu=1
 
 function! Untabify()
     let pos = getpos('.')
@@ -29,6 +31,7 @@ function! Untabify()
     norm! ggVG=
 
     call setpos('.', pos)
+    norm! zz
 endfunction
 function! Tabify()
     let pos = getpos('.')
@@ -37,6 +40,7 @@ function! Tabify()
     norm! ggVG=
 
     call setpos('.', pos)
+    norm! zz
 endfunction
 
 " narrow cursor for insert, block cursor for normal or visual
@@ -62,6 +66,7 @@ nnoremap dw daw
 nnoremap cW ciW
 nnoremap dW daW
 nnoremap <leader>tt :call Untabify()<cr>
+nnoremap <leader>ut :call Tabify()<cr>
 
 noremap <up> <nop>
 noremap <down> <nop>
