@@ -1,6 +1,8 @@
 call plug#begin()
 
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-sensible'
 Plug 'ludovicchabant/vim-gutentags'
