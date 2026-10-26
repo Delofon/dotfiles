@@ -8,11 +8,18 @@ case $- in
       *) return;;
 esac
 
-if [ -n "$DBASHRCSOURCED" ]
+if [ -n "$DBRC_SOURCED" ]
 then
     return
 fi
-DBASHRCSOURCED=1
+DBRC_SOURCED=1
+
+export HOST=`hostname`
+
+# per-system config and whatnot; created by user
+# if anything is absent bash will print a warning
+# for now, DBRC_USEFUCK and DBRC_USENE are expected
+source $HOME/.bashrc_system
 
 source $HOME/.bashrc_history
 source $HOME/.bashrc_prompt
@@ -47,12 +54,15 @@ fi
 
 export GPG_TTY=$(tty)
 
-if [ -z "$TMUX" ]
+if [ -n "$DBRC_USENE" ]
 then
-    if [ -z "$NEOFETCHCALLED" ]
+    if [ -z "$TMUX" ]
     then
-        neofetch
-        NEOFETCHCALLED=1
+        if [ -z "$DBR_NEOFETCHCALLED" ]
+        then
+            neofetch
+            DBR_NEOFETCHCALLED=1
+        fi
     fi
 fi
 

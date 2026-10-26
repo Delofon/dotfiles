@@ -15,5 +15,12 @@ ngreen=`text_attr 0 32`
  nblue=`text_attr 0 34`
 blblue=`text_attr 1 36`
 
-PS1="[ $(col \\u $bwhite)$(col @ $bgray)$(col \\H $blblue) $(col \\W $nwhite) ] \$ "
+HOSTCOL=$bwhite
+
+if [ $HOST = "malachite" ]
+then
+    HOSTCOL=$blblue
+fi
+
+PS1="[ $(col \\u $bwhite)$(col @ $bgray)$(col \\H $HOSTCOL) $(col \\W $nwhite) ] \$ "
 

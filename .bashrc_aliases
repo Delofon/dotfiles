@@ -34,7 +34,10 @@ alias pp='cd -'
 alias ..='cd ..'
 alias ~='cd ~'
 
-eval $(thefuck --alias fuck)
+if [ -n "$DBRC_USEFUCK" ]
+then
+    eval $(thefuck --alias fuck)
+fi
 
 reload ()
 {
