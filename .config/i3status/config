@@ -47,21 +47,31 @@ volume master {
     device = "pulse"
 }
 
+#disk "/" {
+#    format = "/: %used/%total/%avail"
+#}
+#
+#disk "/home" {
+#    format = "/home: %used/%total/%avail"
+#}
 disk "/" {
-    format = "/: %used/%total/%avail"
+    format = "/: %avail avl"
 }
-
 disk "/home" {
-    format = "/home: %used/%total/%avail"
+    format = "/home: %avail avl"
 }
 
+#load {
+#    format = "[%1min;%5min;%15min]"
+#}
 load {
-    format = "[%1min;%5min;%15min]"
+    format = "[%1min]"
 }
 
 memory {
-    format = "RAM: %used/%total/%available"
-    threshold_degraded = "1G"
+    #format = "RAM: %used/%total/%available"
+    format = "RAM: %used"
+    threshold_degraded = "4G"
     format_degraded = "MEMORY < %available"
 }
 

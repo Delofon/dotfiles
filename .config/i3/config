@@ -22,6 +22,7 @@ set $right l
 
 # Font for window titles.
 font pango:monospace 8
+#font pango:monospace 12
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
